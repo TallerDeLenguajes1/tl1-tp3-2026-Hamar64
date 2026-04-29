@@ -3,7 +3,7 @@
 #include<string.h>
 
 void mostrarPersonas(char *nombres[]);
-void buscarNombrePorId(char *nombres[]);
+void buscarNombre(char *nombres[]);
 
 int main() {
     char *Nombres[5];
@@ -19,9 +19,6 @@ int main() {
 
     mostrarPersonas(Nombres);
 
-    int indice = buscarNombre(Nombres);
-    printf("Nombre encontrado: %s", Nombres[indice]);
-
     for(int i=0;i<5;i++){
         free(Nombres[i]);
     }
@@ -35,19 +32,7 @@ void mostrarPersonas(char *nombres[]){
     }
 }
 
-int buscarNombrePorPalabra(char * Nombres[]){
-    char Buff[50];  
-    printf ("Ingrese el nombre a buscar:\n");
-    scanf("%s", Buff);
-    for(int i=0;i<5;i++){
-        if(strstr(Nombres[i], Buff)!=NULL){
-            return i;
-        }
-    }
-    return -1;
-}
-
-void buscarNombrePorId(char *nombres[]){
+void buscarNombre(char *nombres[]){
     int num;
     printf("Ingrese el número (entero positivo) del nombre que desea buscar:\n");
     scanf("%d", &num);
@@ -56,9 +41,4 @@ void buscarNombrePorId(char *nombres[]){
     } else {
         printf("Nombre número %d: %s", num, nombres[num-1]);
     }
-}
-
-
-int buscarNombre2(char *nombres[]){
-
 }
