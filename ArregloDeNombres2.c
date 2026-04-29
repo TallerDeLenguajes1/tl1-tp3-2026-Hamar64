@@ -4,7 +4,6 @@
 
 void mostrarPersonas(char *nombres[]);
 void buscarNombre(char *nombres[]);
-int buscarNombre2(char *nombres[]);
 
 int main() {
     char *Nombres[5];
@@ -42,9 +41,4 @@ void buscarNombre(char *nombres[]){
     } else {
         printf("Nombre número %d: %s", num, nombres[num-1]);
     }
-}
-
-
-int buscarNombre2(char *nombres[]){
-
 }
