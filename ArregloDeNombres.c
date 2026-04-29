@@ -4,6 +4,7 @@
 
 void mostrarPersonas(char *nombres[]);
 void buscarNombrePorId(char *nombres[]);
+int buscarNombrePorPalabra(char * Nombres[]);
 
 int main() {
     char *Nombres[5];
@@ -16,12 +17,16 @@ int main() {
         Nombres[i] = (char *) malloc(tama * sizeof(char)+1);
         strcpy(Nombres[i], Buff);
     }
-
-    mostrarPersonas(Nombres);
-
-    int indice = buscarNombre(Nombres);
-    printf("Nombre encontrado: %s", Nombres[indice]);
-
+    int busq;
+        printf("Cómo desea buscar nombres?\n 1. Buscar por ID\n 2. Buscar por palabra\n");
+        scanf("%d", &busq);
+        if(busq==1){
+            buscarNombrePorId(Nombres);
+        } else if (busq==2) {
+            int indice = buscarNombrePorPalabra(Nombres);
+            printf("Nombre encontrado: %s", Nombres[indice]);
+        }
+    
     for(int i=0;i<5;i++){
         free(Nombres[i]);
     }
@@ -56,9 +61,4 @@ void buscarNombrePorId(char *nombres[]){
     } else {
         printf("Nombre número %d: %s", num, nombres[num-1]);
     }
-}
-
-
-int buscarNombre2(char *nombres[]){
-
 }
